@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+	<!-- persistence-unit para cada banco de dados-->
+	<persistence-unit name="java-jpa-loja" transaction-type="RESOURCE_LOCAL">
+	<!-- 
+		transaction-type="JTA"
+		A opção pela JTA seria mais adequada para quando estamos 
+		utilizando um servidor de aplicação, quando vai trabalhar com EJB, JMS ou
+		outras tecnologias 
+		do Java EE, e o servidor se encarrega de cuidar da transação. 
+	-->
+		
+		<!-- <class>br.com.alura.modelo.Produto</class> -->
+		<!-- 
+			Com o Hibernate não é preciso mapear as classes,
+			mas caso o faça, precisa mapear todas as elas
+		-->
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:loja" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<!-- Exibição do(s) script(s) executado(s) -->
+			<property name="hibernate.show_sql" value="true"/>
+			<!-- Formatar/indentar SQL -->
+			<property name="hibernate.format_sql" value="true"/>
+			<!-- Geração automática de comandos para definição do modelo de dados -->
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+		</properties>
+	</persistence-unit>
+
+</persistence>
