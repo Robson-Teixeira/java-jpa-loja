@@ -29,7 +29,7 @@ public class CadastroProduto {
 
 	}
 
-	private static void cadastrarProduto() {
+	public static void cadastrarProduto() {
 		
 		Categoria celulares = new Categoria("CELULARES");
 
@@ -66,7 +66,7 @@ public class CadastroProduto {
 
 	}
 
-	private static void buscarProdutoPorId() {
+	public static Produto buscarProdutoPorId() {
 
 		EntityManager entityManager = JPAUtil.getEntityManager();
 		ProdutoDao produtoDao = new ProdutoDao(entityManager);
@@ -76,6 +76,8 @@ public class CadastroProduto {
 		Produto produto = produtoDao.buscarPorId(1l);
 
 		imprimirProduto(produto);
+		
+		return produto;
 
 	}
 
