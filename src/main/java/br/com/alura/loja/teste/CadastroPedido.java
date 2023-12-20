@@ -1,5 +1,7 @@
 package br.com.alura.loja.teste;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import br.com.alura.loja.dao.ClienteDao;
@@ -32,7 +34,15 @@ public class CadastroPedido {
 
 		System.out.println("Total vendas: " + pedidoDao.valorTotalVendido());
 
-		entityManager.close();		
+		List<Object[]> relatorioVendas = pedidoDao.relatorioVendas();
+		for (Object[] object : relatorioVendas) {
+			System.out.println(
+					"Produto: " + object[0] + 
+					" | Quantidade Vendida: " + object[1] + 
+					" | Última Venda: " + object[2]);
+		}
+
+		entityManager.close();
 
 	}
 
