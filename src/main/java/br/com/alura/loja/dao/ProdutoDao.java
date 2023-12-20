@@ -33,9 +33,8 @@ public class ProdutoDao {
 	}
 
 	public List<Produto> buscarTodos() {
-		String jpql = "SELECT p FROM Produto p"; // JPQL referencia a classe
 		return this.entityManager
-				.createQuery(jpql, Produto.class)
+				.createNamedQuery("Produto.buscarTodos", Produto.class)
 				.getResultList();
 	}
 	

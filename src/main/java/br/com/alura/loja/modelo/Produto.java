@@ -8,10 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "produtos")
+@NamedQuery(name = "Produto.buscarTodos", 
+			query = "SELECT p FROM Produto p") // JPQL referencia a classe
 public class Produto {
 
 	// @Column(name = "")
