@@ -29,7 +29,10 @@ public class CadastroPedido {
 		clienteDao.cadastrar(cliente);
 		pedidoDao.cadastrar(pedido);
 		entityManager.getTransaction().commit();
-		entityManager.close();
+
+		System.out.println("Total vendas: " + pedidoDao.valorTotalVendido());
+
+		entityManager.close();		
 
 	}
 
