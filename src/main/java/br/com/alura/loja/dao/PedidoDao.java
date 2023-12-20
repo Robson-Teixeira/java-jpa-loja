@@ -38,12 +38,12 @@ public class PedidoDao {
 	
 	public List<RelatorioVendasVo> relatorioVendas() {
 		String jpql = "SELECT new br.com.alura.loja.vo.RelatorioVendasVo(" +
-				"produto.nome, SUM(itemPedido.quantidade), MAX(pedido.data)) " + 
+				"produto.nome, SUM(itemPedido.quantidade) AS quantidadeTotal, MAX(pedido.data)) " + 
 				"FROM Pedido pedido " +
 				"JOIN pedido.itensPedidos itemPedido " +
 				"JOIN itemPedido.produto produto " + 
 				"GROUP BY produto.id " +
-				"ORDER BY itemPedido.quantidade DESC";
+				"ORDER BY quantidadeTotal DESC";
 		return this.entityManager
 				.createQuery(jpql, RelatorioVendasVo.class)
 				.getResultList();
