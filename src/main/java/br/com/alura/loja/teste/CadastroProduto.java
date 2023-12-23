@@ -137,7 +137,7 @@ public class CadastroProduto {
 
 	}
 
-	private static void imprimirProduto(Produto produto) {
+	public static void imprimirProduto(Produto produto) {
 
 		System.out.println("Id: " + produto.getId() + " | Nome: " + produto.getNome() + " | Descrição: "
 				+ produto.getDescricao() + " | Preço: " + produto.getPreco() + " | Data Cadastro: "
