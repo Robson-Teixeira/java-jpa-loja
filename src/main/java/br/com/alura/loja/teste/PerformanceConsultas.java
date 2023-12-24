@@ -31,7 +31,7 @@ public class PerformanceConsultas {
 
 		// LazyInitializationException, pois Cliente (agora definido como Lazy) não foi carregado
 		// antes do fechamento do EntityManager. A solução é definir a query e usar JOIN FETCH
-		System.out.println("Cliente: " + pedido.getCliente().getNome());
+		System.out.println("Cliente: " + pedido.getCliente().getDadosPessoais().getNome());
 
 	}
 
