@@ -8,6 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -16,6 +18,11 @@ import javax.persistence.Table;
 @Table(name = "produtos")
 @NamedQuery(name = "Produto.buscarTodos", 
 			query = "SELECT p FROM Produto p") // JPQL referencia a classe
+@Inheritance(strategy = InheritanceType.JOINED)
+// JOINED - uma tabela para cada classe, cada qual com teus campos e um id igual entre elas (PK e FK)
+// SINGLE_TABLE - uma tabela com todos os atributos da classe mãe e das classes filhas
+// TABLE_PER_CLASS - uma tabela para cada classe com todos os campos próprios e da herança. 
+	// Campo id da tabela mãe deve adotar a estratégia de geração TABLE
 public class Produto {
 
 	// @Column(name = "")
