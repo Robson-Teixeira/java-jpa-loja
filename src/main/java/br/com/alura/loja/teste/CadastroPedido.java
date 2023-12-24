@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 
 import br.com.alura.loja.dao.ClienteDao;
 import br.com.alura.loja.dao.PedidoDao;
+import br.com.alura.loja.modelo.Categoria;
+import br.com.alura.loja.modelo.CategoriaId;
 import br.com.alura.loja.modelo.Cliente;
 import br.com.alura.loja.modelo.ItemPedido;
 import br.com.alura.loja.modelo.Pedido;
@@ -39,6 +41,9 @@ public class CadastroPedido {
 
 		List<RelatorioVendasVo> relatorioVendas = pedidoDao.relatorioVendas();
 		relatorioVendas.forEach(System.out::println);
+		
+		System.out.println(entityManager.find(
+				Categoria.class, new CategoriaId("CELULARES", "Tipo")));
 
 		entityManager.close();
 
